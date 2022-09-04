@@ -1,4 +1,4 @@
-"""One Shot Wordle"""
+"""One Shot Wordle."""
 
 __author__ = "730562021"
 
@@ -22,7 +22,7 @@ else:
     print("Woo! You got it!")
 
 
-while i < len(secret_word): #Nested while loop
+while i < len(secret_word):
     if user_word[i] == secret_word[i]:
         emoji_result += GREEN_BOX
     else:
@@ -31,7 +31,7 @@ while i < len(secret_word): #Nested while loop
         while chr_exists is False and alt_indices < len(secret_word):
             if user_word[i] == secret_word[alt_indices]:  
                 emoji_result += YELLOW_BOX
-                chr_exists = True
+                chr_exists = True  #why does this declaration of true matter? Does only one have to be true foer the loop to run. 
             alt_indices = alt_indices + 1   
         if chr_exists is False:
             emoji_result += WHITE_BOX
@@ -39,6 +39,3 @@ while i < len(secret_word): #Nested while loop
 
 
 print(emoji_result)
-
-
-
