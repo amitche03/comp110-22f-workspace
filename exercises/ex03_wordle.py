@@ -20,7 +20,7 @@ def contains_char(analyzed_string: str, looking_for_character: str) -> bool:
 
 
 def emojified(guess: str, secret: str) -> str:
-    """Uses contains_char to analyze string for matching characters from guessed word. If the guessed word has characaters do not that match those of the secret word, this function concatenates white and yellow boxes"""
+    """Uses contains_char to analyze string for matching characters from guessed word. If the guessed word has characaters do not that match those of the secret word, this function concatenates white and yellow boxes."""
     assert len(guess) == len(secret)
     i: int = 0 
     emoji_result: str = ""
@@ -45,25 +45,24 @@ def input_guess(expected_length: int) -> str:
     else:
         return user_word
 
+
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret_word: str = "codes"
     turn: int = 1
     won: bool = False
-    while turn <= 6 and won != True:
+    
+    while turn <= 6 and won is not True:
         print(f"=== Turn {turn}/6 ===")
-        input_guess(5)
-        emojified(input_guess , secret_word)
-        if input_guess == secret_word:
+        guess: str = input_guess(5)
+        print(emojified(guess, secret_word))
+        if guess == secret_word:
             won = True
-            print(f"You won in {turn} turns! ")
+            print(f"You won in {turn}/6 turns! ")
         turn += 1 
-    if turn > 6:
-            print("X/6 - Sorry, try again tomorrow! ")
+    if turn > 6 and won is False:
+        print("X/6 - Sorry, try again tomorrow! ")
 
 
-
-
-
-    
-    
+if __name__ == "__main__":
+    main()
