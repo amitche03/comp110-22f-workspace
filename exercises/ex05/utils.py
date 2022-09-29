@@ -29,11 +29,20 @@ def concat(first_list: list[int], second_list: list[int]) -> list[int]:
         i += 1
     return resulting_list
 
+
 def sub(given_list: list[int], start_index: int, end_index: int) -> list[int]:
     """Return a new list that is between the start index and end index - 1."""
     sub_list: list[int] = []
-    i: int = 0
-    while start_index <= end_index - 1:
-        sub_list.append(given_list[start_index])
-        start_index += 1
+    if len(given_list) == 0:
+        return sub_list
+    if start_index == len(given_list):
+        return sub_list
+    if end_index > len(given_list) - 1:
+        end_index = given_list[len(given_list) - 1]
+    if start_index < 0:
+        start_index = 0
+    i: int = start_index
+    while i <= end_index - 1:
+        sub_list.append(given_list[i])
+        i += 1
     return sub_list
