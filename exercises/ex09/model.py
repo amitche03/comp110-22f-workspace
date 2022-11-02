@@ -23,6 +23,7 @@ class Point:
         """Add two Point objects together and return a new Point."""
         x: float = self.x + other.x
         y: float = self.y + other.y
+        z: str
         return Point(x, y)
 
 
